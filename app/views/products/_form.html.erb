@@ -28,7 +28,17 @@
 
   <div>
     <%= form.label :category_id, style: "display: block" %>
-    <%= form.number_field :category_id, Category.all, :id, :name %>
+    <%= form.collection_select :category_id, Category.all, :id, :name %>
+  </div>
+
+  <div>
+    <%= form.label :photos, style: "display: block" %>
+    <%= form.file_field :photos, multiple: true %>
+  </div>
+
+  <div>
+    <%= form.label :documents, style: "display: block" %>
+    <%= form.file_field :documents, multiple: true %>
   </div>
 
   <div>

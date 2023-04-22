@@ -16,11 +16,18 @@
 
   <p>
     <strong>Category:</strong>
-    <%= product.name %>
+    <%= product.category.name %>
   </p>
 
+  <% if product.photos.attached? %>
+    <% product.photos.each do |image| %>
+      <%= image_tag image, width: 250 %>
+    <% end %>
+  <% end %>
+
   <p>
-    <strong>Name:</strong>
-    <%= product.name %>
+    <strong>Document:</strong>
+    <%= product.documents %>
+    <%= link_to 'Download', rails_blob_path(product.documents, disposition: "attachment")%>
   </p>
 </div>
